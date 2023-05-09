@@ -318,7 +318,7 @@ class GW_signal:
         self.h0factor = parameters['h0factor']                 # multiplying factor for h0
         
         self.t = self.time_vec() - self.tcoes                  # time array [s]
-        self.iota = self.iota(u = 'ddeg')                      # inclination angle of the NS rot axis wrt interferometer [ddeg] 
+        self.iota = self.iota(u = 'ddeg')                      # inclination angle of the NS rot axis wrt interferometer [decimal deg] 
         
         if parameters['tau'] is None:                          # frequency characteristic time (spin-down timescale)
             self.tau = self.compute_tau(parameters['k'])
