@@ -255,6 +255,7 @@ class GW_signal:
     Methods:
         time_vec: gives the time vector in [s]
         UTCdate: computes the UTC-format date of the GW signal starting time if tcoe is an int/float.
+        MJDdate: computes the MJD format date of the GW signal starting time.
         iota: gives the inclination angle (iota) in [rad] or [decimal degrees] of the system wrt interferometer, linked to
               the GW polarization degree (eta) #[2, 3, 4]#
         compute_tau: gives the frequency characteristic time in [s] #[1]#
@@ -318,7 +319,8 @@ class GW_signal:
         self.h0factor = parameters['h0factor']                 # multiplying factor for h0
         
         self.t = self.time_vec() - self.tcoes                  # time array [s]
-        self.iota = self.iota(u = 'ddeg')                      # inclination angle of the NS rot axis wrt interferometer [decimal deg] 
+        self.iota = self.iota(u = 'ddeg')                      # inclination angle of the NS rot axis wrt interferometer [decimal deg]
+        self.mjdsignal_date = self.MJDdate()                   # date (MJD) of the GW signal generation (coalescing time)
         
         if parameters['tau'] is None:                          # frequency characteristic time (spin-down timescale)
             self.tau = self.compute_tau(parameters['k'])
@@ -348,14 +350,24 @@ class GW_signal:
         
         # simulation UTC date
         simdate_utc = Time.now()
-
         # GPS time
         signaldate_gps = Time(simdate_utc.gps + self.tcoes, format='gps')
-
         # date (UTC) of the signal detection
         date_utc = signaldate_gps.utc.iso
     
         return date_utc
+    
+    
+    def MJDdate(self):
+        """
+        It computes the MJD format date of the GW signal starting time.
+        """
+        
+        # date (MJD) of the signal detection
+        date_utc = Time(self.signal_date, format='iso', scale='utc')
+        date_mjd = date_utc.mjd
+        
+        return date_mjd
     
     
     def iota(self, u = 'rad'):
