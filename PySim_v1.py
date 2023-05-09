@@ -254,7 +254,8 @@ class GW_signal:
 
     Methods:
         time_vec: gives the time vector in [s]
-        UTCdate: computes the UTC-format date of the GW signal starting time if tcoe is an int/float.
+        UTCdate: computes the iso-UTC format date of the GW signal starting time if tcoe is an int/float (if called as a class
+                 module, UTCdate return the actual time in iso-UTC format each time is called).
         MJDdate: computes the MJD format date of the GW signal starting time.
         iota: gives the inclination angle (iota) in [rad] or [decimal degrees] of the system wrt interferometer, linked to
               the GW polarization degree (eta) #[2, 3, 4]#
