@@ -838,7 +838,7 @@ class GW_injection:
         
         self.Deltatime_data = self.gout['n']*self.dt/86400       # time duration of the interferometer output [days] 
         
-        gws = GW_signal(parameters)                              #
+        gws = GW_signal(parameters)
         self.t0_signal = gws.mjdsignal_date                      # starting time of the simulated signal [mjd]      
         self.frequency = gws.frequency()                         # frequency of the simulated signal [Hz] 
         self.Phi = gws.Phi()                                     # phase of the simulated signal [rad]
