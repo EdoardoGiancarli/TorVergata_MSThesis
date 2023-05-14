@@ -222,17 +222,18 @@ def spectrograms_noise(n_im, path_bsd_gout, lfft, images = False, directory = No
 
     data = bsd_gout['y']                   # data: noise         
     dt = bsd_gout['dx'][0, 0]              # sampling time of the input data
-    timelenght_chunk = int(86400/(4*dt))   # each spectrogram covers 1/4 day
+    c = 4
+    timelenght_chunk = int(86400/(c*dt))   # each spectrogram covers 1/c day
        
     if n_im > (len(data)//timelenght_chunk):
-        print('Oops, too many spectrograms..slow down: max N images is {a}'.format(a = len(data)//timelenght_chunk))
+        print(f"""Oops, too many spectrograms..slow down: max N images is {len(data)//timelenght_chunk} with
+              each spectrograms that covers 1/{c} day""")
     
     else:
         for j in range(n_im):
             
             # shift zero values to the center for fft evaluation
             data_chunk = ifftshift(data[j*timelenght_chunk : (j + 1)*timelenght_chunk])     
-            
             # if there are too many zeros it skips the chunk
             if len(np.where(data_chunk == 0)[0])/timelenght_chunk < 0.3:
                 spectr(data_chunk, dt, lfft, title = 'Noise spectrogram_' + str(j + 1), images = images,
