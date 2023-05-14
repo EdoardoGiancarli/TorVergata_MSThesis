@@ -117,8 +117,7 @@ def extract_bsdgoutinfo(bsd_gout, key= 'gout_58633_58638_295_300', mat_v73=True)
     """
     
     if isinstance(bsd_gout, str):
-        bsd_gout = mat_to_dict(bsd_gout, key = key,
-                               data_file = 'noise', mat_v73 = mat_v73)      # gout and perczero of y_gout
+        bsd_gout = mat_to_dict(bsd_gout, key = key, mat_v73 = mat_v73)      # gout and perczero of y_gout
         
     dt = bsd_gout['dx'][0, 0]         # sampling time of the input data
     y_gout = bsd_gout['y']            # data from the gout bsd
