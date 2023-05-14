@@ -171,7 +171,11 @@ def spectr(data, dt, lfft, title = None, images = False, directory = None):
     # print(len(data_chunk), len(F), len(T), spectrogram.shape)
     
     if images: # spectrogram image
-                        
+        if directory is None:
+            raise ValueError('Specify the directory to save the spectrograms images')
+        else:
+            pass
+        
         plt.figure(num = None, tight_layout = True)
         plt.pcolormesh(T/86400, fftshift(F), np.log10(fftshift(spectrogram, axes=0)), cmap='viridis', shading='gouraud')
         plt.axis('off')
@@ -180,7 +184,6 @@ def spectr(data, dt, lfft, title = None, images = False, directory = None):
         plt.close()
     
     else: # plot spectrogram
-        
         plt.figure(num = None, figsize = (12, 12), tight_layout = True)             
         # a = plt.pcolormesh(T/86400, F, np.log10(spectrogram), cmap='viridis', shading='gouraud')
         a = plt.pcolormesh(T/86400, fftshift(F), np.log10(fftshift(spectrogram, axes=0)), cmap='viridis', shading='gouraud')
@@ -194,7 +197,7 @@ def spectr(data, dt, lfft, title = None, images = False, directory = None):
 ##########################################################################################################################
 
 
-def spectrograms_noise(n_im, path_bsd_gout, lfft, images = False,
+def spectrograms_noise(n_im, path_bsd_gout, lfft, images = False, directory = None,
                        key= 'gout_58633_58638_295_300', mat_v73=True):
     
     """
@@ -206,15 +209,13 @@ def spectrograms_noise(n_im, path_bsd_gout, lfft, images = False,
     lfft (int): fft lenght for the spectrogram --
     images (bool): if True Spectrograms_injsign generates and saves the spectrograms
                     images in directory (default = False) --
+    directory (str): path for the directory to save the spectrograms images --
     key (str): keyword with info from L, H or V interferometer (default = goutL) --
     mat_v73 (bool): if the matlab datafile version is -v7.3 insert the 'True' value (default = 'False') --
     -------------------------------------------------------------------------------------------------------
     return: None
     -------------------------------------------------------------------------------------------------------    
     """
-    
-    # directory for spectrograms
-    directory = "D:/Home/Universita'/Universita'/Magistrale/Master Thesis/Tesi_Codes/Spectrograms_noise/"
     
     # dict with data
     bsd_gout = mat_to_dict(path_bsd_gout, key = key, mat_v73 = mat_v73)      # gout and perczero of y_gout 
