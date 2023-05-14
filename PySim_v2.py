@@ -104,6 +104,12 @@ def parameters(days, dt, fgw0, tcoe = 0, n = 5, k = 1.2167e-16, tau = None, Phi0
         except ValueError:
             raise ValueError("The date format is wrong: if tcoe in [date iso UTC] it has to be represented with 'yyyy-mm-dd hh:mm:ss'")
     
+    ## check on eta
+    if np.abs(eta) > 1:
+        raise ValueError('Parameter eta must be a value in [-1, 1]')
+    else:
+        pass
+    
     ## interferometer's latitude[rad], longitude[rad], azimut[rad] (!!! X-arm azimut) and elevation [m]
     # url: https://lscsoft.docs.ligo.org/lalsuite/lal/group___detector_constants.html
     # Ref.: LIGO Scientic Collaboration, "LIGO Algorithm Library - LALSuite, free software" (2021)
