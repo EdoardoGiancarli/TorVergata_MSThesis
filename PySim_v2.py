@@ -55,7 +55,8 @@ def parameters(days, dt, fgw0, tcoe = 0, n = 5, k = 1.2167e-16, tau = None, Phi0
     tcoe (int, float, str): coalescing time/initial time in [days] or [date in UTC scale, iso format] of the simulated
                             long transient GW signal; if tcoe in [days] it represents the starting time wtr the actual
                             time date at which the signal is simulated (astropy.time.Time.now() date); tcoe can be <, =
-                            or > 0 (if tcoe < 0, the signal is generated tcoe days in the past, default = 0) --
+                            or > 0 (if tcoe < 0, the signal is generated tcoe days in the past, default = 0); also if tcoe
+                            is >= 57365 will be considered as a date in MJD format and converted to iso-UTC date--
     n (int, float): breaking index (default = 5) --
     k (int, float): spin-down proportionality const (if given, default = 1.2167e-16, which gives tau = 1 (\pm 0.005)
                     in [s] for an fgw0 = 125 [Hz] and n = 5) --
@@ -103,6 +104,11 @@ def parameters(days, dt, fgw0, tcoe = 0, n = 5, k = 1.2167e-16, tau = None, Phi0
             Time(tcoe, format='iso', scale='utc')
         except ValueError:
             raise ValueError("The date format is wrong: if tcoe in [date iso UTC] it has to be represented with 'yyyy-mm-dd hh:mm:ss'")
+    
+    ## check on tcoe (if tcoe >= 57365 its value will be considered in MJD format)
+    elif tcoe >= 57365:
+        tcoe = Time(tcoe, format='mjd', scale='utc').iso
+        print("Friendly Warning: since tcoe is >= 57365 it has been considered as a date in MJD format and converted to iso-UTC date")
     
     ## check on eta
     if np.abs(eta) > 1:
