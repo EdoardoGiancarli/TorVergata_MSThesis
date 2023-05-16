@@ -552,7 +552,8 @@ class GW_signal:
 
         # Local Sidereal Time (LST) of the interferometer
         gps_time = Time(time_gps, format = 'gps', scale = 'utc', location = location)
-        lst = gps_time.sidereal_time('apparent').radian
+        # lst = gps_time.sidereal_time('apparent').radian #!!! mean and apparent differ 1e-5 from each other (comput time 25 s)
+        lst = gps_time.sidereal_time('mean').radian # (comput time 0.7 s)
     
         return lst
     
