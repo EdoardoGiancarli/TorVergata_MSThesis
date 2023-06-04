@@ -1,2 +1,2 @@
 # TorVergata_MSThesis
-Repository with codes and document about my MS Thesis at Tor Vergata.
+Repository with codes and documents about my MS Thesis at Tor Vergata.
