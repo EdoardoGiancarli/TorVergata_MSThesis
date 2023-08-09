@@ -53,7 +53,10 @@ class GW_Deep(nn.Module):
                                             will be loaded inside the GW_Deep class (default = None)
     
     Layers:
-        
+        1. Conv + BN + PReLU
+        2. Conv + PReLU + MaxPool
+        3. linear + PReLU + Dropout
+        4. linear
     
     Ref:
         [1] S. Raschka, Y. H. Liu, V. Mirjalili "Machine Learning with PyTorch
