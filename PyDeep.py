@@ -34,7 +34,11 @@ setup_text_plots(fontsize=26, usetex=True)
 
 ####    content    #####
 
-# GW_Deep (class): CNN model for spectrograms (binary) classification
+# Base_CNN (class): base architecture for the residual network at the 1st stage
+#
+# ResBlock (class): residual block for the model
+#
+# GWResNet (class): residual convolutional network model
 #
 # ImageDataset (class): features and targets coupling
 #
