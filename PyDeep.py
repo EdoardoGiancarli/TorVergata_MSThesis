@@ -1182,7 +1182,7 @@ class GWDeepTools:
             obs (dict): dictionary with epochs, loss, accuracy and batch size
         """
         
-        filepath = "D:/Home/Universita'/Universita'/Magistrale/Master Thesis/Tesi_Codes/Prova_cnn/CNN_models/GWResNet_Models/"        
+        filepath = "filepath"        
         
         # load the model
         checkpoint = torch.load(filepath + filename)
@@ -1234,7 +1234,7 @@ class GWDeepTools:
             dataset (torch.utils.data.dataloader.DataLoader obj): dataset
         """
         
-        filepath = "D:/Home/Universita'/Universita'/Magistrale/Master Thesis/Tesi_Codes/Prova_cnn/"
+        filepath = "filepath"
         
         if mode == 'save':
             torch.save(dataset, filepath + dataset_name + '.pt')
