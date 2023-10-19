@@ -1005,7 +1005,7 @@ class DnsResNetTools:
             start_resblocks (list): initial residual blocks in the model (default = [0, 'PReLU'])
         """
         
-        filepath = "D:/Home/Universita'/Universita'/Magistrale/Master Thesis/Tesi_Codes/Prova_Denoiser/DNS_models/"
+        filepath = "filepath"
         
         # define losses and accuracy
         if train_loss is not None:
@@ -1050,7 +1050,7 @@ class DnsResNetTools:
             obs (dict): dictionary with epochs, loss, accuracy and batch size
         """
         
-        filepath = "D:/Home/Universita'/Universita'/Magistrale/Master Thesis/Tesi_Codes/Prova_Denoiser/DNS_models/"
+        filepath = "filepath"
         
         # load the model
         checkpoint = torch.load(filepath + filename)
