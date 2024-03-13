@@ -190,7 +190,7 @@ def parameters(days, dt, fgw0, tcoe = 0, n = 5, k = None, tau = 1, Phi0 = 0, rig
 
 class GW_signal:
     """
-    This class simulate a long transient GW signal from an isolated neutron star
+    This class simulates a long transient GW signal from an isolated neutron star
     using the supplied parameters and options.
     -----------------------------------------------------------------------------
     Parameters:
