@@ -30,7 +30,7 @@ import PyLTSim as psm                        # module for long transient simulat
 
 
 #### 1. Define the ltGW parameters
-params = psm.parameters(days=1, dt=0.2, fgw0=1e3, tcoe=0, n=5, k=None, tau=1, Phi0=0, right_asc='05 34 30.9',
+params = psm.parameters(days=1, dt=0.01, fgw0=1400, tcoe=0, n=5, k=None, tau=1, Phi0=0, right_asc='05 34 30.9',
                         dec='+22 00 53', eta=-1, psi=0, Einstein_delay=False, Doppler_effect=False,
                         interferometer='LIGO-L', NS_parameters=[1e38, 1e-6, 1], h0factor=5e19,
                         signal_inj=False, bsd_gout=None, key='bsd_L_C00_sub', mat_v73=True)
