@@ -12,6 +12,7 @@
 6. Image_generation: script in which the images for the denoiser and the classifier are generated
 7. DnsResNet_model_analysis: script in which the denoiser is called, trained and analyzed
 8. GWResNet_model_analysis: script in which the classifier is called, trained and analyzed
+9. LongTransient_Simulation_and_Injection_tutorial: script with the tutorial for long transient gravitational signals simulation and injection
 
 
 # Python info
