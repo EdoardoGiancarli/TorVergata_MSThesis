@@ -156,10 +156,6 @@ obs_freq, obs_phi, obs_h, obs_t = gwinj.frequency_band(plot = True, observable='
 #! these quantities above represent the segments of the ltGW frequency, phase, strain and time indicated by the inserted data
 #! (all these four arrays can be plotted by changing the "observable" input)
 
-# The cutted ltGW strain is then summed to the respective data chunk
-real_data_chunk = gwinj.data_chunk()
-
-
 # The total data (s(t) = h(t) + n(t)) can be directly retrieved with the "injection" method
 s_t = gwinj.injection(amp = 1, plot = True, values = 'abs')
 
