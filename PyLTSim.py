@@ -63,7 +63,7 @@ def parameters(days, dt, fgw0, tcoe = 0, n = 5, k = None, tau = 1, Phi0 = 0, rig
         n (int, float): breaking index (default = 5) --
         k (int, float): spin-down proportionality const (default = None) --
         tau (int, float): frequency characteristic time (spin-down timescale) in [days] (default = 1) --
-        Phi0 (int, float): initial phase const in [decimal degrees] (default = 0 since the interf work in dark fringe) --
+        Phi0 (int, float): initial phase const in [decimal degrees] (default = 0) --
         right_asc (str, float): right ascension of the source in [hour angle] (str) or [decimal degree] (float)
                                 (default = '05 34 30.9' from Crab pulsar, coord by SIMBAD archive) --
         dec (str, float): declination of the source in [deg] (str) or [decimal degree] (float) (default = '+22 00 53'
