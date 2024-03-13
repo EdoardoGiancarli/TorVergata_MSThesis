@@ -35,7 +35,7 @@ params = psm.parameters(days=1, dt=0.2, fgw0=1e3, tcoe=0, n=5, k=None, tau=1, Ph
                         interferometer='LIGO-L', NS_parameters=[1e38, 1e-6, 1], h0factor=5e19,
                         signal_inj=False, bsd_gout=None, key='bsd_L_C00_sub', mat_v73=True)
 
-#! Here the module "parameters" is used to define the parameters that characterize the ltGW (see the function "parameters"
+#! Here the method "parameters" is used to define the parameters that characterize the ltGW (see the function "parameters"
 #  in the PyLTSim module). Specifically, the following ltGW properties can be initialized:
 
 #         days (int, float): duration of the GW signal in [days]
